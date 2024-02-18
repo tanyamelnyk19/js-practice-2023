@@ -1600,128 +1600,366 @@
 
 // console.log('tagsStats', tagsStats);
 
-const scientists = [
-    {
-        name: 'Albert',
-        surname: 'Einstein',
-        born: 1879,
-        dead: 1955,
-        id: 1,
-    },
-    {
-        name: 'Isaac',
-        surname: 'Newton',
-        born: 1643,
-        dead: 1727,
-        id: 2,
-    },
-    {
-        name: 'Galileo',
-        surname: 'Galilei',
-        born: 1564,
-        dead: 1642,
-        id: 3,
-    },
-    {
-        name: 'Marie',
-        surname: 'Curie',
-        born: 1867,
-        dead: 1934,
-        id: 4,
-    },
-    {
-        name: 'Johannes',
-        surname: 'Kepler',
-        born: 1571,
-        dead: 1630,
-        id: 5,
-    },
-    {
-        name: 'Nicolaus',
-        surname: 'Copernicus',
-        born: 1473,
-        dead: 1543,
-        id: 6,
-    },
-    {
-        name: 'Max',
-        surname: 'Planck',
-        born: 1858,
-        dead: 1947,
-        id: 7,
-    },
-    {
-        name: 'Katherine',
-        surname: 'Blodgett',
-        born: 1898,
-        dead: 1979,
-        id: 8,
-    },
-    {
-        name: 'Ada',
-        surname: 'Lovelace',
-        born: 1815,
-        dead: 1852,
-        id: 9,
-    },
+// const scientists = [
+//     {
+//         name: 'Albert',
+//         surname: 'Einstein',
+//         born: 1879,
+//         dead: 1955,
+//         id: 1,
+//     },
+//     {
+//         name: 'Isaac',
+//         surname: 'Newton',
+//         born: 1643,
+//         dead: 1727,
+//         id: 2,
+//     },
+//     {
+//         name: 'Galileo',
+//         surname: 'Galilei',
+//         born: 1564,
+//         dead: 1642,
+//         id: 3,
+//     },
+//     {
+//         name: 'Marie',
+//         surname: 'Curie',
+//         born: 1867,
+//         dead: 1934,
+//         id: 4,
+//     },
+//     {
+//         name: 'Johannes',
+//         surname: 'Kepler',
+//         born: 1571,
+//         dead: 1630,
+//         id: 5,
+//     },
+//     {
+//         name: 'Nicolaus',
+//         surname: 'Copernicus',
+//         born: 1473,
+//         dead: 1543,
+//         id: 6,
+//     },
+//     {
+//         name: 'Max',
+//         surname: 'Planck',
+//         born: 1858,
+//         dead: 1947,
+//         id: 7,
+//     },
+//     {
+//         name: 'Katherine',
+//         surname: 'Blodgett',
+//         born: 1898,
+//         dead: 1979,
+//         id: 8,
+//     },
+//     {
+//         name: 'Ada',
+//         surname: 'Lovelace',
+//         born: 1815,
+//         dead: 1852,
+//         id: 9,
+//     },
 
+//     {
+//         name: 'Lise',
+//         surname: 'Meitner',
+//         born: 1878,
+//         dead: 1968,
+//         id: 11,
+//     },
+//     {
+//         name: 'Sarah E.',
+//         surname: 'Goode',
+//         born: 1855,
+//         dead: 1905,
+//         id: 10,
+//     },
+//     {
+//         name: 'Hanna',
+//         surname: 'Hammarström',
+//         born: 1829,
+//         dead: 1909,
+//         id: 12,
+//     },
+// ];
+
+// console.log('scientists', scientists);
+
+// //  получить массив ученых которые родились в 19 ст
+
+// const scientistsOf19thCentury = scientists
+//     .filter(({ born }) => born >= 1800 && born < 1900)
+//     .map(({ name, surname }) => `${name} ${surname}`);
+
+// // console.log('scientistsOf19thCentury', scientistsOf19thCentury);
+
+// //  Посчитать суму лет сколько прожили все ученные
+
+// const totalLifespan = scientists.reduce(
+//     (total, { born, dead }) => total + dead - born,
+//     0,
+// );
+// // console.log(totalLifespan);
+
+// //  Отсортировать по алфавиту
+
+// const sortedScientists = [...scientists].sort(
+//     (firstScientist, secondScientist) =>
+//         firstScientist.surname.localeCompare(secondScientist.surname),
+// );
+// // console.table( sortedScientists);
+
+// //  Отсортировать по количеству прожитых лет
+
+// const sortedByYears = [...scientists].sort(
+//     (firstScientist, secondScientist) => {
+//         // const firstLife = firstScientist.dead - firstScientist.born;
+//         // const secondLife =secondScientist.dead - secondScientist.born;
+//         // return firstLife - secondLife;
+//         return (
+//             firstScientist.dead -
+//             firstScientist.born -
+//             (secondScientist.dead - secondScientist.born)
+//         );
+//     },
+// );
+// // console.table(sortedByYears);
+
+// //   Удалить ученых которые родились в 15,16,17 ст
+
+// const deleteScientists = scientists.filter(scientist => {
+//     // return !(scientist.born >= 1400 && scientist.born < 1700);
+//     return scientist.born < 1400 || scientist.born >= 1700;
+// });
+
+// console.table(deleteScientists);
+
+// //   Найти год рождения Albert Einstein
+
+// const yearOfBirth = scientists.find(
+//     scientist => `${scientist.name} ${scientist.surname}` === 'Albert Einstein',
+// ).born;
+
+// // console.log('yearOfBirth', yearOfBirth);
+
+// //   Узнать все ли ученые работали в 19 ст
+// const result = scientists.every(
+//     scientist =>
+//         (scientist.born >= 1800 && scientist.born < 1900) ||
+//         (scientist.dead >= 1800 && scientist.dead < 1900),
+// );
+// console.log(result);
+
+//  Сортировка примитивов
+// Выполнить сортировку массива цен по убыванию и возрастанию.
+
+// const prices = [2, 14, 1, 37, 26, 8];
+
+// const pricesDescending  = [...prices].sort((a, b) => b - a);
+// console.log('pricesDescending', pricesDescending);
+
+// const pricesAscending  = [...prices].sort((a, b) => a - b);
+// console.log('pricesAscending', pricesAscending);
+
+// Выполнить сортировку массива названий мониторов в алфавитном и обратном алфавитном порядке.
+
+// const items = ["SAMSUNG", "LG", "ASUS", "DELL", "BENQ"];
+
+// const alphabetAscending = [...items].sort((a, b) => a.localeCompare(b));
+// console.log('alphabetAscending', alphabetAscending);
+
+// const alphabetDescending = [...items].sort((a, b) => b.localeCompare(a));
+// console.log('alphabetDescending', alphabetDescending);
+
+// Собрать в allTopics массив всех предметов всех курсов используя flatMap.
+// Используя Array.prototype.filter выполнить фильтрацию,
+// оставив в uniqueTopics только уникальные элементы.
+
+// const courses = [
+//   {
+//     name: "Basic HTML+CSS",
+//     topics: ["VSCode", "HTML", "CSS", "GitHub Desktop", "GitHub"],
+//   },
+//   {
+//     name: "Intermediate HTML+CSS",
+//     topics: ["VSCode", "Terminal", "Git", "GitHub", "HTML", "CSS"],
+//   },
+//   {
+//     name: "Basic JavaScript",
+//     topics: [
+//       "VSCode",
+//       "Type system",
+//       "Loops",
+//       "Functions",
+//       "Conditions",
+//       "Classes",
+//       "DOM",
+//       "Git",
+//       "GitHub",
+//     ],
+//   },
+//   {
+//     name: "Intermediate JavaScript",
+//     topics: [
+//       "VSCode",
+//       "NPM",
+//       "Bundlers",
+//       "Transpiling",
+//       "Promises",
+//       "AJAX",
+//       "Git",
+//       "GitHub",
+//     ],
+//   },
+// ];
+
+// const allTopics = courses
+//     .flatMap(course => course.topics)
+//     .filter((topic, index, array) => array.indexOf(topic) === index);
+
+// console.log('allTopics', allTopics);
+
+// function changeEven(numbers, value) {
+//     return numbers.map(number => number % 2 === 0 ? number += value : number)
+// }
+
+// console.log(changeEven([1, 2, 3, 4, 5], 10))
+
+[
     {
-        name: 'Lise',
-        surname: 'Meitner',
-        born: 1878,
-        dead: 1968,
-        id: 11,
+        name: 'Moore Hensley',
+        email: 'moorehensley@indexia.com',
+        eyeColor: 'blue',
+        friends: ['Sharron Pace'],
+        isActive: false,
+        balance: 2811,
+        skills: ['ipsum', 'lorem'],
+        gender: 'male',
+        age: 37,
     },
     {
-        name: 'Sarah E.',
-        surname: 'Goode',
-        born: 1855,
-        dead: 1905,
-        id: 10,
+        name: 'Sharlene Bush',
+        email: 'sharlenebush@tubesys.com',
+        eyeColor: 'blue',
+        friends: ['Briana Decker', 'Sharron Pace'],
+        isActive: true,
+        balance: 3821,
+        skills: ['tempor', 'mollit', 'commodo', 'veniam', 'laborum'],
+        gender: 'female',
+        age: 34,
     },
     {
-        name: 'Hanna',
-        surname: 'Hammarström',
-        born: 1829,
-        dead: 1909,
-        id: 12,
+        name: 'Ross Vazquez',
+        email: 'rossvazquez@xinware.com',
+        eyeColor: 'green',
+        friends: ['Marilyn Mcintosh', 'Padilla Garrison', 'Naomi Buckner'],
+        isActive: false,
+        balance: 3793,
+        skills: ['nulla', 'anim', 'proident', 'ipsum', 'elit'],
+        gender: 'male',
+        age: 24,
+    },
+    {
+        name: 'Elma Head',
+        email: 'elmahead@omatom.com',
+        eyeColor: 'green',
+        friends: ['Goldie Gentry', 'Aisha Tran'],
+        isActive: true,
+        balance: 2278,
+        skills: ['adipisicing', 'irure', 'velit'],
+        gender: 'female',
+        age: 21,
+    },
+    {
+        name: 'Carey Barr',
+        email: 'careybarr@nurali.com',
+        eyeColor: 'blue',
+        friends: ['Jordan Sampson', 'Eddie Strong'],
+        isActive: true,
+        balance: 3951,
+        skills: ['ex', 'culpa', 'nostrud'],
+        gender: 'male',
+        age: 27,
+    },
+    {
+        name: 'Blackburn Dotson',
+        email: 'blackburndotson@furnigeer.com',
+        eyeColor: 'brown',
+        friends: ['Jacklyn Lucas', 'Linda Chapman'],
+        isActive: false,
+        balance: 1498,
+        skills: ['non', 'amet', 'ipsum'],
+        gender: 'male',
+        age: 38,
+    },
+    {
+        name: 'Sheree Anthony',
+        email: 'shereeanthony@kog.com',
+        eyeColor: 'brown',
+        friends: ['Goldie Gentry', 'Briana Decker'],
+        isActive: true,
+        balance: 2764,
+        skills: ['lorem', 'veniam', 'culpa'],
+        gender: 'female',
+        age: 39,
     },
 ];
 
-//  получить массив ученых которые родились в 19 ст
+const getTotalBalanceByGender = (users, gender) => {
+   return users.filter(user => user.gender === gender)
+   .reduce((totalBalance, user) => totalBalance += user.balance
+   , 0)
+};
 
-const scientistsOf19thCentury = scientists
-.filter(({ born }) => born >= 1800 && born < 1900)
-.map(({ name, surname }) => `${name} ${surname}`);
+// const getNamesSortedByFriendCount = users => {
+//     return  [...users].sort((a,b) => a.friends.length - b.friends.length)
+//                       .map(user => user.name);
+//  };
 
-// console.log('scientistsOf19thCentury', scientistsOf19thCentury);
+// Пиши код ниже этой строки
+// const getFriends = users => {
+//     return users
+//         .flatMap(user => user.friends)
+//         .filter((friend, ind, arr) => arr.indexOf(friend) === ind);
+// };
+// Пиши код выше этой строки
+// return users.filter(user => user.friends)
+// const bookWithTitle = books.find(book => book.title === BOOK_TITLE);
 
-//  Посчитать суму лет сколько прожили все ученные
+// const ascendingReleaseDates = [...releaseDates].sort((a,b) => a - b);
 
-const totalLifespan = scientists
-.reduce((total, { born, dead }) => total + dead - born, 0);
-// console.log(totalLifespan);
+// const authorsInAlphabetOrder = [...authors].sort((a,b) => a.localeCompare(b));
 
-//  Отсортировать по алфавиту
+// Дополни код так, чтобы в переменной names получился массив имён авторов в алфавитном порядке,
+// рейтинг книг которых больше значения переменной MIN_BOOK_RATING.
 
-const sortedScientists = [...scientists]
-.sort((firstScientist, secondScientist) => 
-    firstScientist.surname.localeCompare(secondScientist.surname)
-); 
-// console.table( sortedScientists);
+// const books = [
+//     {
+//         title: 'Последнее королевство',
+//         author: 'Бернард Корнуэлл',
+//         rating: 8.38,
+//     },
+//     { title: 'На берегу спокойных вод', author: 'Роберт Шекли', rating: 8.51 },
+//     {
+//         title: 'Сон смешного человека',
+//         author: 'Федор Достоевский',
+//         rating: 7.75,
+//     },
+//     { title: 'Красна как кровь', author: 'Ли Танит', rating: 8.14 },
+//     { title: 'Сны В Ведьмином Доме', author: 'Говард Лавкрафт', rating: 8.67 },
+// ];
+// const MIN_BOOK_RATING = 8;
 
-//  Отсортировать по количеству прожитых лет
+// const names = books
+//     .filter(book => book.rating > MIN_BOOK_RATING)
+//     .map(book => book.author)
+//     .sort((a,b) => a.localeCompare(b));
 
-const sortedByYears =  [...scientists].sort((firstScientist, secondScientist) => {
-    const firstLife = firstScientist.dead - firstScientist.born;
-    const secondLife =secondScientist.dead - secondScientist.born;
-console.log('firstLife', firstLife)
-console.log('secondLife', secondLife)
-return firstLife - secondLife;
-    // (firstScientist.dead - firstScientist.born) - (secondScientist.dead - secondScientist.born)
-});
-console.table(sortedByYears);
+// console.table(names);
 
-//   Удалить ученых которые родились в 15,16,17 ст
-//   Найти год рождения Albert Einstein
-//   Узнать все ли ученые работала в 19 ст
+
